@@ -13,7 +13,7 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.19.0/b
   sudo mv ./kubectl /usr/local/bin/kubectl
 
 
-CMD ["supervisord"]
+CMD ["supervisord", "-c", "/etc/supervisor/conf.d/kubernetes.conf"]
 
 
 
