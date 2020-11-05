@@ -1,11 +1,13 @@
 FROM ubuntu
 
-MAINTAINER gutar (admin@escolasoft.com)
+MAINTAINER Gutar "<admin@escolasoft.com>"
 
 WORKDIR /root
 
 # install supervisor, curl
-RUN apt-get update && apt-get install -y supervisor curl
+RUN apt-get update && apt-get install -y supervisor curl && \
+  apt-get autoremove -y && \
+  rm -rf /var/lib/apt/lists/*
 
 # install kubectl
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.19.0/bin/linux/amd64/kubectl && \
